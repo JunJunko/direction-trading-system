@@ -1,0 +1,20 @@
+{
+  "version": "v10",
+  "hypothesis": "one partial exit on failed rebound after net close +2R, preserve v7 core",
+  "activation": "net close liquidation estimate >= 2 original cost-inclusive R; costs injected from actual execution config; intraday high never arms; ATR gain logged but no new ATR threshold",
+  "structure": "after activation keep observable high H1; strict left2/right2 daily L after H1; later confirmed daily H2 <= H1; after H2 confirmation close below L triggers; any new intraday high above H1 resets L/H2; gaps reset chain; ambiguous outside pivots ignored",
+  "execution": "once per position sell floor(quantity/3/100)*100 at next executable open; <100 skip, never force full exit; original stop and v7 exits remain; full exit supersedes pending partial",
+  "accounting": "all sale legs grouped by setup/entry; original total R denominator frozen for completed trade; remaining fees/risk prorated; future corporate actions synthetic factor shares",
+  "experiment": "X0 baseline vs P1 partial; fixed146 entries at costs1/1.5/2 plus shared account standard cost; no tuning",
+  "unchanged": [
+    "entry selection",
+    "net reward/risk strictly >3",
+    "original W2% cap",
+    "default config"
+  ],
+  "limitations": [
+    "known development sample, no new holdout",
+    "daily fills and synthetic factors",
+    "fees/slippage model not actual broker fills"
+  ]
+}

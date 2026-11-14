@@ -1,0 +1,50 @@
+{
+  "initial_cash": 1000000,
+  "risk": {
+    "risk_per_trade": 0.005,
+    "max_portfolio_risk": 0.02,
+    "max_position_weight": 0.1,
+    "max_gross_weight": 0.5,
+    "max_positions": 5,
+    "min_rr": 3.0
+  },
+  "execution": {
+    "commission_rate": 0.0003,
+    "minimum_commission": 5,
+    "slippage": 0.001,
+    "sell_tax_before_20230828": 0.001,
+    "sell_tax_after_20230828": 0.0005
+  },
+  "strategies": [
+    {
+      "type": "autonomous_double_bottom",
+      "id": "double_bottom_v5_16_stop_only",
+      "params": {
+        "lower_cycle": "daily_nested",
+        "plan_valid_days": 5,
+        "structure_mode": "hierarchy",
+        "exit_mode": "active_correction",
+        "protection_mode": "live_leg",
+        "entry_lifecycle": "fresh",
+        "retest_mode": "boundary",
+        "candidate_mode": "pool",
+        "core_mode": "nested",
+        "holding_scale_mode": "owned_core",
+        "direction_cycle": "daily",
+        "direction_retest_min": 3,
+        "direction_retest_max": 14,
+        "support_mode": "confirmed_trough",
+        "support_max_entry_risk": 0.02,
+        "stop_buffer": 0,
+        "entry_mode": "support_rebound",
+        "support_tighten": true
+      }
+    }
+  ],
+  "research_scope": "structure_only",
+  "automatic_account_policy": {
+    "drawdown_step": 0.03,
+    "contraction": 0.75,
+    "max_steps": 3
+  }
+}

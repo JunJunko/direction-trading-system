@@ -1,0 +1,56 @@
+{
+  "initial_cash": 1000000,
+  "risk": {
+    "risk_per_trade": 0.005,
+    "max_portfolio_risk": 0.02,
+    "max_position_weight": 0.1,
+    "max_gross_weight": 0.5,
+    "max_positions": 5,
+    "min_rr": 3.0,
+    "min_expected_upside": 0.05
+  },
+  "execution": {
+    "commission_rate": 0.0003,
+    "minimum_commission": 5,
+    "slippage": 0.001,
+    "sell_tax_before_20230828": 0.001,
+    "sell_tax_after_20230828": 0.0005,
+    "daily_exit_order": "open_first"
+  },
+  "strategies": [
+    {
+      "type": "candidate_policy_ihs",
+      "id": "inverse_head_shoulders_v10_area_selected",
+      "params": {
+        "left": 2,
+        "right": 2,
+        "min_head_height": 0.2,
+        "max_shoulder_height": 0.2,
+        "max_neckline_height": 0.1,
+        "breakout_atr": 0.1,
+        "stop_buffer_atr": 0.5,
+        "min_stop_atr": 1.0,
+        "max_entry_atr": 1.0,
+        "prior_trend_sessions": 20,
+        "min_prior_decline": 0.05,
+        "min_head_atr": 1.0,
+        "pressure_breakout_atr": 0.1,
+        "candidate_ranking": "area",
+        "candidate_consumption": "selected"
+      }
+    },
+    {
+      "type": "double_bottom",
+      "id": "double_bottom_v3",
+      "params": {
+        "direction_cycle": "weekly"
+      }
+    }
+  ],
+  "research_scope": "structure_only",
+  "automatic_account_policy": {
+    "drawdown_step": 0.03,
+    "contraction": 0.75,
+    "max_steps": 3
+  }
+}

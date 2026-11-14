@@ -1,0 +1,25 @@
+{
+  "initial_cash": 1000000,
+  "risk": {
+    "risk_per_trade": 0.005,
+    "max_portfolio_risk": 0.02,
+    "max_position_weight": 0.10,
+    "max_gross_weight": 0.50,
+    "max_positions": 5,
+    "min_rr": 3.0
+  },
+  "execution": {
+    "commission_rate": 0.0003,
+    "minimum_commission": 5,
+    "slippage": 0.001,
+    "sell_tax_before_20230828": 0.001,
+    "sell_tax_after_20230828": 0.0005
+  },
+  "strategies": [
+    {
+      "type": "double_bottom",
+      "id": "double_bottom_v1",
+      "params": {"direction_cycle": "weekly"}
+    }
+  ]
+}

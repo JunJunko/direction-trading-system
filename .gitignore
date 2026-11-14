@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.env
+.env.*
+!.env.example
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local market data, run outputs, audit artifacts, and temporary files.
+data/
+runs/
+audits/
+tmp/
+
+# Local reference books are not part of the code distribution.
+ebook/
+
+# Build outputs and local credentials.
+build/
+dist/
+*.log
+*.pem
+*.key
